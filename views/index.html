@@ -2,54 +2,39 @@
 <html lang="en" ng-app='myApp'>
 <head>
   <meta charset="UTF-8">
-  <title>Angular Boilerplate</title>
+  <title>Caffeine app</title>
   <!-- styles -->
   <link href="http://netdna.bootstrapcdn.com/bootswatch/3.3.2/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="stylesheets/style.css" rel="stylesheet" media="screen">
 </head>
   <body>
     <div class="container">
+
       <div ng-controller="myController" ng-model="initialText">
         <h1>Say something</h1>
         <br>
         <input type="text" ng-model="greeting"></p>
         <p> h1 [[greeting ]] </p>
-      <!-- add content here -->
-      
-      <!-- <form>
-      <label> Name </label>
-        <input type="text" name="name" ng.model="newcontact.name">
-      <label> Description </label>
-        <input type="text" name="description" ng.model="newcontact.description">
-      <label> Price </label>
-        <input type="text" name="price" ng.model="newcontact.price">
-      <label> Caffeine </label>
-        <input type="text" name="caffeine" ng.model="newcontact.caffeine">
-      <input type="button" value="Save" ng-click="saveContact()">
-
-
       </div>
-      <table>
-        <thead> 
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Caffeine</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="contact in contacts">
-            <td>{{ contact.name }}</td>
-            <td>{{ contact.description }}</td>
-            <td>{{ contact.price }}</td>
-            <td>
-                <a href="#" ng-click="edit(contact.id)">edit</a> | 
-                <a href="#" ng-click="delete(contact.id)">delete</a>
-            </td>
-         </tr>
-        </tbody>
-</table>    -->
+      <!-- add content here -->
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="name">beverageName</label>
+          <input type="text" class="form-control" id="drinkName" placeholder="beverage name">
+        </div>
+        <div class="form-group">
+          <label for="description">description</label>
+          <input type="text" class="form-control" id="description" placeholder="description">
+        </div>
+        <div class="form-group">
+          <label for="caffeine-level">caffeine-level</label>
+          <input type="text" class="form-control" id="caffeine-level" placeholder="caffeine-level">
+        </div>
+        
+        <button type="submit" class="btn btn-default" ng-click="drinkList">Submit</button>
+      </form>
+      
     </div>
     <!-- scripts -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
