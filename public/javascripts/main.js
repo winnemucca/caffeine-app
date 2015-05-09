@@ -1,4 +1,3 @@
-// var app = angular.module('myApp', []);
 
  var app = angular.module('myApp', [], function ($interpolateProvider) {
             $interpolateProvider.startSymbol('[[');
@@ -37,33 +36,38 @@
 
  	app.factory("DrinkList",function(Tea){
  	
-	 	// var beverageList = {
-	 	// 	drinkLibrary: []
-	 	// };
-	 	
-	 	// beverageList.newItem = function(){
-	 	// 	beverageList.drinkLibrary.push(new Tea);
-	 	// }
-	 	// console.log(beverageList);
-	 	// return beverageList;
+	 // 	var defaultForm = {
+ 	// 	bevergeName: "",
+ 	// 	description: "",
+ 	// 	caffeine: ""
+ 	// }
+ // 	console.log('defaultForm',defaultForm);
 
-	 	var drinkLibrary = [];
-	 	return {
+	//  	var drinkLibrary = [];
+	//  	return {
 
-	 		// drinkLibrary: [],
-	 		newItem: function() {
-	 			drinkLibrary.push(new Tea);
-	 			return drinkLibrary;
-	 		}
-	 	}
+	//  		// drinkLibrary: [],
+	//  		newItem: function() {
+	//  			drinkLibrary.push(defaultForm);
+	//  			return drinkLibrary;
+	//  		}
+	//  	}
 
 	})
 
- app.controller('myController', function($scope,Tea,SoftDrink,DrinkList ) {
+ app.controller('myController', function($scope ) {
  	// DrinkList.drinkLibrary;
  	// $scope.drinkList = DrinkList.drinkLibrary;
- 	$scope.drinkList = DrinkList.newItem();
- 	console.log(DrinkList.newItem());
+ 	// $scope.drinkList = DrinkList.newItem();
+ 	// console.log(DrinkList.newItem());
+
+ 	var defaultForm = {
+ 		bevergeName: "",
+ 		description: "",
+ 		caffeine: ""
+ 	};
+ 	console.log('defaultForm',defaultForm);
+ 	
  	var whiteTea = new Tea('white','good',10,'yes','20');
  	var coke = new SoftDrink('coca-cola','sweet',4,'yes','30');
 	console.log('connected',whiteTea)
@@ -71,7 +75,3 @@
   $scope.greeting = "Hello World!";
 });
 
-// app.controller('myController', function($scope) {
-// 	console.log('connected')
-//   $scope.greeting = "Hello World!";
-// });
