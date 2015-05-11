@@ -1,8 +1,22 @@
-var app = angular.module('myApp', [], function ($interpolateProvider) {
+var app = angular.module('myApp', ['ngRoute'], function ($interpolateProvider) {
             $interpolateProvider.startSymbol('[[');
             $interpolateProvider.endSymbol(']]');
         });
-
+app.config(function($routeProvider,$locationProvider){
+	$routeProvider
+		.when('/home',{
+			templateUrl:'templates/home.html',
+			controller:'myController'
+		})
+		.when('/drinkLibrary',{
+			templateUrl:'templates/drinkLibrary.html',
+			controller:'DrinkLibraryController'
+		})
+		.otherwise({
+			redirectTo: '/home'
+		})
+		$locationProvider.hashPrefix('!');
+});
 app.factory('Drink',function($http) {
 	var Drink = function(name,description,caffeineLevel) {
  		this.name = name;
@@ -13,6 +27,15 @@ app.factory('Drink',function($http) {
 
 	return Drink;
 })
+
+app.controller('HomeController',function($scope){
+	console.log('home');
+})
+
+app.controller('DrinkLibraryController',function($scope){
+	console.log('drinkLibrary');
+})
+
 
 app.controller('myController', function($scope,Drink,$http  ) {
 	var init = function() {
@@ -43,20 +66,5 @@ app.controller('myController', function($scope,Drink,$http  ) {
  			})
 
  	};
-
-
-
-
- 	
-
- 	
- 	  $scope.greeting = "Hello World!";
-
- 	// var Drink = function(name,description,caffeineLevel) {
- 	// 	this.name = name;
- 	// 	this.description = description;
- 	// 	this.caffeineLevel = caffeineLevel;
-
- 	// }
 
 });
